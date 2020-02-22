@@ -1,0 +1,28 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>main.cpp</file>
+        <file>items/BaseTabBar.qml</file>
+        <file>images/homepage/search.png</file>
+        <file>images/guide/analogy_after.png</file>
+        <file>images/guide/analogy.png</file>
+        <file>images/guide/books_after.png</file>
+        <file>images/guide/books.png</file>
+        <file>images/guide/home_after.png</file>
+        <file>images/guide/home.png</file>
+        <file>images/guide/homepage_after.png</file>
+        <file>images/guide/homepage.png</file>
+        <file>images/guide/me_after.png</file>
+        <file>images/guide/me.png</file>
+        <file>items/homepage/SearchBar.qml</file>
+        <file>views/HomeView.qml</file>
+        <file>items/homepage/CircleView.qml</file>
+        <file>images/homepage/switchimg/1.jpg</file>
+        <file>images/homepage/switchimg/2.jpg</file>
+        <file>images/homepage/switchimg/3.jpg</file>
+        <file>images/homepage/switchimg/4.jpg</file>
+        <file>images/homepage/switchimg/5.jpg</file>
+        <file>images/homepage/switchimg/6.jpg</file>
+        <file>images/homepage/switchimg/7.jpg</file>
+    </qresource>
+</RCC>
