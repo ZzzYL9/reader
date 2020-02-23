@@ -48,8 +48,8 @@ ApplicationWindow {
 
     footer: BaseTabBar{
         id: bar
-        height: 0.09*parent.height
-        width: parent.width
+        height: 0.09*rootwindow.height
+        width: rootwindow.width
         currentIndex: swipeview.currentIndex
         Component.onCompleted: {
             myModel.append({ "modelText": "首页", "modelColor": "#000000", "modelColorG": "#148014", "modelSrc": "qrc:/images/guide/homepage.png", "modelSrcG": "qrc:/images/guide/homepage_after.png"})

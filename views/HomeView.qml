@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.5
 import "../items/homepage"
+import "../forms"
 
 Item {
     SearchBar {
@@ -15,9 +16,11 @@ Item {
         }
     }
 
+//轮播
+//***************************************
     CircleView {
         id: cirCleView
-
+        anchors.topMargin: 5
         model: ListModel {
             ListElement { picUrl: 'qrc:/images/homepage/switchimg/1.jpg' }
             ListElement { picUrl: 'qrc:/images/homepage/switchimg/2.jpg' }
@@ -44,7 +47,6 @@ Item {
             }
         }
 
-
         onDraggingChanged: {
             if (dragging)
                 timer.stop()
@@ -64,9 +66,21 @@ Item {
         id: timer
         running: true
         repeat: true
-        interval: 1000
+        //轮播切换速度
+        interval: 2000
         onTriggered: cirCleView.currentIndex = (cirCleView.currentIndex + 1) % cirCleView.count
     }
+//******************************************
+
+//网格排列
+//******************************************
+    GridViews{
+        grid_height: 0.25*rootwindow.height
+        grid_width: rootwindow.width
+        anchors.top: cirCleView.bottom
+    }
+
+//******************************************
 
 
 }

@@ -31,9 +31,11 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 #DISTFILES += \
 DISTFILES += \
     QML/SearchBar.qml \
+    forms/GridViews.qml \
     items/BaseTabBar.qml \
     items/SearchBar.qml \
     items/homepage/CircleView.qml \
+    items/homepage/GridBook.qml \
     items/homepage/SearchBar.qml \
     main.qml \
     views/HomeView.qml
