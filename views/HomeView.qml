@@ -1,9 +1,12 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.5
+import QtGraphicalEffects 1.0
 import "../items/homepage"
-import "../forms"
+import "../common"
 
 Item {
+//顶部搜索栏
+//**************************************
     SearchBar {
         id:searchBar
         width: rootwindow.width
@@ -15,19 +18,20 @@ Item {
             }
         }
     }
+//***************************************
 
 //轮播
 //***************************************
     CircleView {
         id: cirCleView
-        anchors.topMargin: 5
+        anchors.margins: 5
         model: ListModel {
-            ListElement { picUrl: 'qrc:/images/homepage/switchimg/1.jpg' }
-            ListElement { picUrl: 'qrc:/images/homepage/switchimg/2.jpg' }
-            ListElement { picUrl: 'qrc:/images/homepage/switchimg/3.jpg' }
-            ListElement { picUrl: 'qrc:/images/homepage/switchimg/4.jpg' }
-            ListElement { picUrl: 'qrc:/images/homepage/switchimg/5.jpg' }
-            ListElement { picUrl: 'qrc:/images/homepage/switchimg/6.jpg' }
+            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/1.jpg' }
+            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/2.jpg' }
+            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/3.jpg' }
+            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/4.jpg' }
+            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/5.jpg' }
+            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/6.jpg' }
         }
 
         delegate: Item {
@@ -78,6 +82,7 @@ Item {
         grid_height: 0.25*rootwindow.height
         grid_width: rootwindow.width
         anchors.top: cirCleView.bottom
+        anchors.margins: 10
     }
 
 //******************************************

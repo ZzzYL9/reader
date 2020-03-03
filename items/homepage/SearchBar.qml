@@ -19,7 +19,7 @@ ToolBar {
         }
         ToolButton {
             id: searchButton
-            iconSource:"qrc:/images/homepage/search.png"
+            iconSource:"qrc:/Images/homepage/search.png"
             onClicked: doSearch(searchText.text)
         }
     }

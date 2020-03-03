@@ -13,7 +13,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    main.cpp
+    background_setting.cpp \
+    book_chapter.cpp \
+    book_settings.cpp \
+    curpage_setting.cpp \
+    font_setter.cpp \
+    main.cpp \
+    read_view.cpp \
+    reader_book.cpp \
+    theme_setting.cpp
 
 RESOURCES += qml.qrc
 
@@ -31,11 +39,37 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 #DISTFILES += \
 DISTFILES += \
     QML/SearchBar.qml \
+    common/GridViews.qml \
     forms/GridViews.qml \
     items/BaseTabBar.qml \
     items/SearchBar.qml \
+    items/bookshelf/BookDelegate.qml \
+    items/bookshelf/BookShow.qml \
+    items/bookshelf/Book_ShelfItem.qml \
+    items/bookshelf/TopBars.qml \
+    items/bookshelf/readview/BookItem.qml \
+    items/bookshelf/readview/ListItem.qml \
+    items/bookshelf/readview/SettingButton.qml \
+    items/bookshelf/readview/SettingButton1.qml \
+    items/bookshelf/readview/SettingButton2.qml \
+    items/bookshelf/readview/SettingButton3.qml \
     items/homepage/CircleView.qml \
     items/homepage/GridBook.qml \
     items/homepage/SearchBar.qml \
     main.qml \
-    views/HomeView.qml
+    popup/BrightNess.qml \
+    popup/PopupCatalog.qml \
+    popup/SettingBottom.qml \
+    views/HomeView.qml \
+    views/readview/CataBottom.qml \
+    views/readview/ReadView.qml
+
+HEADERS += \
+    background_setting.h \
+    book_chapter.h \
+    book_settings.h \
+    curpage_setting.h \
+    font_setter.h \
+    read_view.h \
+    reader_book.h \
+    theme_setting.h

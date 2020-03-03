@@ -35,25 +35,14 @@ TabBar {
                 id: image
                 width: 24
                 height: 24
+                anchors.bottom: text.bottom
+                anchors.bottomMargin: 12
                 anchors.horizontalCenter: parent.horizontalCenter
                 source: (model.index === bar.currentIndex) ? modelSrcG : modelSrc
             }
-//            onHoveredChanged: {
-//                if (model.index !== bar.currentIndex){
-//                    hovered ? text.color = modelColorG : text.color = modelColor
-//                    hovered ? image.source = modelSrcG : image.source = modelSrc
-////                    console.log(bar.currentIndex,model.index)
-//                }
-//            }
-            onClicked: {
-//                bar.lastIndex = model.index;
-//                repeater.itemAt(bar.lastIndex).imageSource = myModel.get(bar.lastIndex).modelSrc;
-//                repeater.itemAt(bar.lastIndex).textColor = modelColor;
 
-//                image.source = modelSrcG;
-//                text.color = modelColorG;
-//                bar.lastIndex = model.index;
-//                console.log(model.index)
+            onClicked: {
+
             }
         }
     }

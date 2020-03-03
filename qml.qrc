@@ -3,34 +3,74 @@
         <file>main.qml</file>
         <file>main.cpp</file>
         <file>items/BaseTabBar.qml</file>
-        <file>images/homepage/search.png</file>
-        <file>images/guide/analogy_after.png</file>
-        <file>images/guide/analogy.png</file>
-        <file>images/guide/books_after.png</file>
-        <file>images/guide/books.png</file>
-        <file>images/guide/home_after.png</file>
-        <file>images/guide/home.png</file>
-        <file>images/guide/homepage_after.png</file>
-        <file>images/guide/homepage.png</file>
-        <file>images/guide/me_after.png</file>
-        <file>images/guide/me.png</file>
         <file>items/homepage/SearchBar.qml</file>
         <file>views/HomeView.qml</file>
         <file>items/homepage/CircleView.qml</file>
-        <file>images/homepage/switchimg/1.jpg</file>
-        <file>images/homepage/switchimg/2.jpg</file>
-        <file>images/homepage/switchimg/3.jpg</file>
-        <file>images/homepage/switchimg/4.jpg</file>
-        <file>images/homepage/switchimg/5.jpg</file>
-        <file>images/homepage/switchimg/6.jpg</file>
-        <file>images/homepage/switchimg/7.jpg</file>
-        <file>forms/GridViews.qml</file>
         <file>items/homepage/GridBook.qml</file>
-        <file>images/homepage/gridimg/IU1.jpg</file>
-        <file>images/homepage/gridimg/IU2.jpg</file>
-        <file>images/homepage/gridimg/IU3.jpg</file>
-        <file>images/homepage/gridimg/IU4.jpg</file>
-        <file>images/homepage/gridimg/IU5.jpg</file>
-        <file>images/homepage/gridimg/IU6.jpg</file>
+        <file>items/bookshelf/TopBars.qml</file>
+        <file>common/GridViews.qml</file>
+        <file>items/bookshelf/BookDelegate.qml</file>
+        <file>Globel_Object.qml</file>
+        <file>items/bookshelf/Book_ShelfItem.qml</file>
+        <file>qmldir</file>
+        <file>items/bookshelf/readview/BookItem.qml</file>
+        <file>items/bookshelf/readview/ListItem.qml</file>
+        <file>items/bookshelf/readview/SettingButton.qml</file>
+        <file>items/bookshelf/readview/SettingButton1.qml</file>
+        <file>items/bookshelf/readview/SettingButton2.qml</file>
+        <file>items/bookshelf/readview/SettingButton3.qml</file>
+        <file>views/readview/CataBottom.qml</file>
+        <file>views/readview/ReadView.qml</file>
+        <file>popup/BrightNess.qml</file>
+        <file>popup/PopupCatalog.qml</file>
+        <file>popup/SettingBottom.qml</file>
+        <file>Images/guide/analogy_after.png</file>
+        <file>Images/guide/analogy.png</file>
+        <file>Images/guide/books_after.png</file>
+        <file>Images/guide/books.png</file>
+        <file>Images/guide/home_after.png</file>
+        <file>Images/guide/home.png</file>
+        <file>Images/guide/homepage_after.png</file>
+        <file>Images/guide/homepage.png</file>
+        <file>Images/guide/me_after.png</file>
+        <file>Images/guide/me.png</file>
+        <file>Images/homepage/search.png</file>
+        <file>Images/homepage/switchimg/2.jpg</file>
+        <file>Images/homepage/switchimg/3.jpg</file>
+        <file>Images/homepage/switchimg/4.jpg</file>
+        <file>Images/homepage/switchimg/5.jpg</file>
+        <file>Images/homepage/switchimg/6.jpg</file>
+        <file>Images/homepage/switchimg/7.jpg</file>
+        <file>Images/homepage/gridimg/IU1.jpg</file>
+        <file>Images/homepage/gridimg/IU2.jpg</file>
+        <file>Images/homepage/gridimg/IU3.jpg</file>
+        <file>Images/homepage/gridimg/IU4.jpg</file>
+        <file>Images/homepage/gridimg/IU5.jpg</file>
+        <file>Images/homepage/gridimg/IU6.jpg</file>
+        <file>Images/shelf/add.png</file>
+        <file>Images/shelf/search.png</file>
+        <file>Images/homepage/switchimg/1.jpg</file>
+        <file>Images/readview/autoChangePage.png</file>
+        <file>Images/readview/back.png</file>
+        <file>Images/readview/brightness.png</file>
+        <file>Images/readview/catalog.png</file>
+        <file>Images/readview/font_size_down.png</file>
+        <file>Images/readview/font_size_up.png</file>
+        <file>Images/readview/fullChangePage.png</file>
+        <file>Images/readview/giftButton.png</file>
+        <file>Images/readview/globalRegistration.png</file>
+        <file>Images/readview/HeadsetButton.png</file>
+        <file>Images/readview/heigtBrightness.png</file>
+        <file>Images/readview/horzenScrenChange.png</file>
+        <file>Images/readview/listButton.png</file>
+        <file>Images/readview/lowBrightness.png</file>
+        <file>Images/readview/nightmodel.png</file>
+        <file>Images/readview/other.png</file>
+        <file>Images/readview/right_Alignment.png</file>
+        <file>Images/readview/right_Alignment1.png</file>
+        <file>Images/readview/right_Alignment2.png</file>
+        <file>Images/readview/set.png</file>
+        <file>Images/readview/sunsize.png</file>
+        <file>Images/readview/verticalAlignment.png</file>
     </qresource>
 </RCC>
