@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import QtGraphicalEffects 1.0
-import "../items/homepage"
+import "../../items/homepage"
 
 Item {
     property alias grid_height: gridrec.height
@@ -11,7 +11,7 @@ Item {
 //        height: 200
 
         Component {
-            id: bookDelegate
+            id: booksortDelegate
             Item {
                 id: wrapper
                 width: grid.cellWidth
@@ -66,7 +66,7 @@ Item {
              cellHeight: 0.5*gridrec.height
 
              model: GridBook {}
-             delegate: bookDelegate
+             delegate: booksortDelegate
              highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
              focus: true
          }

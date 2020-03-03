@@ -5,10 +5,8 @@
         <file>items/BaseTabBar.qml</file>
         <file>items/homepage/SearchBar.qml</file>
         <file>views/HomeView.qml</file>
-        <file>items/homepage/CircleView.qml</file>
         <file>items/homepage/GridBook.qml</file>
         <file>items/bookshelf/TopBars.qml</file>
-        <file>common/GridViews.qml</file>
         <file>items/bookshelf/BookDelegate.qml</file>
         <file>Globel_Object.qml</file>
         <file>items/bookshelf/Book_ShelfItem.qml</file>
@@ -72,5 +70,7 @@
         <file>Images/readview/set.png</file>
         <file>Images/readview/sunsize.png</file>
         <file>Images/readview/verticalAlignment.png</file>
+        <file>views/HomeView/CircleView.qml</file>
+        <file>views/HomeView/GridViews.qml</file>
     </qresource>
 </RCC>
