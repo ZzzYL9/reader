@@ -5,6 +5,8 @@ import "../items/homepage"
 import "./HomeView"
 
 Rectangle {
+    width: rootwindow.width
+    height:rootwindow.height
 //顶部搜索栏
 //**************************************
     SearchBar {
@@ -21,115 +23,112 @@ Rectangle {
         }
     }
 //***************************************
-    Rectangle{
-        id:homecontent
-        width: rootwindow.width
-        height: flow.height+50
-        anchors.top: searchBar.bottom
-        Flickable {
-            id: contents
-            anchors.fill: parent
-            contentHeight: flow.height
-            contentWidth: rootwindow.width
 
-            Column{
-                id: flow
-                anchors.top: parent.top
-                anchors.left: parent.left
-                anchors.right: parent.right
-                spacing: 16
-                //轮播
-                //***************************************
-                Rectangle{
-                    width: rootwindow.width/2
-                    height: cirCleView.height
+    //滑动
+    Flickable {
+        id: contents
+        anchors.fill: parent
+        anchors.topMargin: searchBar.height
+        contentHeight: flow.height+bar.height
+        contentWidth: rootwindow.width
+//            clip: false
 
-                    CircleView {
-                        id: cirCleView
-                        anchors.margins: 5
-                        model: ListModel {
-                            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/PHP.jpg' }
-                            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/C++.jpg' }
-                            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/deeplearning.png' }
-                            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/python.jpg' }
-                            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/cocos2d.jpg' }
-                            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/android.jpg' }
-                        }
+        Column{
+            id: flow
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.right: parent.right
+            spacing: 16
+            //轮播
+            //***************************************
+            Rectangle{
+                width: rootwindow.width/2
+                height: cirCleView.height
 
-                        delegate: Item {
+                CircleView {
+                    id: cirCleView
+                    anchors.margins: 5
+                    model: ListModel {
+                        ListElement { picUrl: 'qrc:/Images/homepage/switchimg/PHP.jpg' }
+                        ListElement { picUrl: 'qrc:/Images/homepage/switchimg/C++.jpg' }
+                        ListElement { picUrl: 'qrc:/Images/homepage/switchimg/deeplearning.png' }
+                        ListElement { picUrl: 'qrc:/Images/homepage/switchimg/python.jpg' }
+                        ListElement { picUrl: 'qrc:/Images/homepage/switchimg/cocos2d.jpg' }
+                        ListElement { picUrl: 'qrc:/Images/homepage/switchimg/android.jpg' }
+                    }
+
+                    delegate: Item {
+                        width: 1/2*cirCleView.width
+                        height: cirCleView.height
+                        Image {
                             width: 1/2*cirCleView.width
                             height: cirCleView.height
-                            Image {
-                                width: 1/2*cirCleView.width
-                                height: cirCleView.height
-                                anchors.fill: parent
-                                anchors.bottom: parent.bottom
-                                source: picUrl
-                            }
-                            MouseArea {
-                                anchors.fill: parent
-                                //轮播图点击后切换页面处理
-                                onClicked: {
-                                    console.log("处理图片"+picUrl)
-                                }
+                            anchors.fill: parent
+                            anchors.bottom: parent.bottom
+                            source: picUrl
+                        }
+                        MouseArea {
+                            anchors.fill: parent
+                            //轮播图点击后切换页面处理
+                            onClicked: {
+                                console.log("处理图片"+picUrl)
                             }
                         }
-
-                        onDraggingChanged: {
-                            if (dragging)
-                                timer.stop()
-                            else
-                                timer.start()
-                        }
                     }
 
-                    PageIndicator {
-                        anchors.bottom: cirCleView.bottom
-                        anchors.horizontalCenter: cirCleView.horizontalCenter
-                        count: cirCleView.count
-                        currentIndex: cirCleView.currentIndex
-                    }
-
-                    Timer {
-                        id: timer
-                        running: true
-                        repeat: true
-                        //轮播切换速度
-                        interval: 2000
-                        onTriggered: cirCleView.currentIndex = (cirCleView.currentIndex + 1) % cirCleView.count
+                    onDraggingChanged: {
+                        if (dragging)
+                            timer.stop()
+                        else
+                            timer.start()
                     }
                 }
-                //******************************************
 
-                //网格排列
-                //******************************************
-                Rectangle{
-                    width: rootwindow.width/2
-                    height: gridviews.height
-
-                    GridViews{
-                        id:gridviews
-                        width: rootwindow.width
-                        height: 0.25*rootwindow.height
-                    }
+                PageIndicator {
+                    anchors.bottom: cirCleView.bottom
+                    anchors.horizontalCenter: cirCleView.horizontalCenter
+                    count: cirCleView.count
+                    currentIndex: cirCleView.currentIndex
                 }
-                //******************************************
 
-                //猜你喜欢
-                //******************************************
-                Rectangle{
-                    id:aaa
-                    width: rootwindow.width/2
-                    height: videoview.height
-
-                    VideoView{
-                        id:videoview
-                        width: rootwindow.width
-                        height: 0.3*rootwindow.height
-                    }
+                Timer {
+                    id: timer
+                    running: true
+                    repeat: true
+                    //轮播切换速度
+                    interval: 2000
+                    onTriggered: cirCleView.currentIndex = (cirCleView.currentIndex + 1) % cirCleView.count
                 }
-                //******************************************
             }
+            //******************************************
+
+            //网格排列
+            //******************************************
+            Rectangle{
+                width: rootwindow.width/2
+                height: gridviews.height
+
+                GridViews{
+                    id:gridviews
+                    width: rootwindow.width
+                    height: 0.25*rootwindow.height
+                }
+            }
+            //******************************************
+
+            //猜你喜欢
+            //******************************************
+            Rectangle{
+                width: rootwindow.width/2
+                height: videoview.height
+
+                VideoView{
+                    id:videoview
+                    width: rootwindow.width
+                    height: 0.3*rootwindow.height
+                }
+            }
+            //******************************************
         }
     }
 }
