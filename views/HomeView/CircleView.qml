@@ -2,8 +2,8 @@ import QtQuick 2.7
 
 Item {
     id: root
-    implicitWidth: parent.width
-    implicitHeight: 0.3*parent.height
+    implicitWidth: rootwindow.width
+    implicitHeight: 0.3*rootwindow.height
     anchors.top: searchBar.bottom
 
     property alias count: pathView.count

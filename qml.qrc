@@ -72,5 +72,7 @@
         <file>Images/readview/verticalAlignment.png</file>
         <file>views/HomeView/CircleView.qml</file>
         <file>views/HomeView/GridViews.qml</file>
+        <file>views/HomeView/SortBooks.qml</file>
+        <file>views/HomeStack.qml</file>
     </qresource>
 </RCC>

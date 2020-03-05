@@ -5,8 +5,8 @@ import "../items/homepage"
 import "./HomeView"
 
 Item {
-//顶部搜索栏
-//**************************************
+    //顶部搜索栏
+    //**************************************
     SearchBar {
         id:searchBar
         width: rootwindow.width
@@ -18,10 +18,10 @@ Item {
             }
         }
     }
-//***************************************
+    //***************************************
 
-//轮播
-//***************************************
+    //轮播
+    //***************************************
     CircleView {
         id: cirCleView
         anchors.margins: 5
@@ -61,7 +61,7 @@ Item {
 
     PageIndicator {
         anchors.bottom: cirCleView.bottom
-        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.horizontalCenter: cirCleView.horizontalCenter
         count: cirCleView.count
         currentIndex: cirCleView.currentIndex
     }
@@ -86,6 +86,9 @@ Item {
     }
 
 //******************************************
+
+
+
 
 
 }

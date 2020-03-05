@@ -26,7 +26,10 @@ ApplicationWindow {
         currentIndex: bar.currentIndex
 
         //首页
-        HomeView{}
+        HomeStack{}
+
+//        HomeView{}
+
 
         //书架
 //        BookShelfView{}

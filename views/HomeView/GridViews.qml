@@ -19,7 +19,11 @@ Item {
                 //鼠标点击选中
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: wrapper.GridView.view.currentIndex = index
+                    onClicked:{
+                        console.log(index)
+                        wrapper.GridView.view.currentIndex = index
+                        load_page(index)
+                    }
                 }
 
                 Image {
