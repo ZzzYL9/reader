@@ -7,6 +7,7 @@ import "items/bookshelf"
 import "views"
 import "views/readview"
 import "."
+import "common"
 import Reader 1.0
 import Chapter 1.0
 import BookShelf 1.0
@@ -32,11 +33,32 @@ ApplicationWindow {
 
 
         //书架
-//        BookShelfView{}
         Rectangle{
             id:bookshelf
-            color: "red"
-            TopBars{ id:topBars }
+            color: "#CCCCCC"
+            TopBars{
+                id: topBars
+                height: 0.07*rootwindow.height
+                width: rootwindow.width
+                text: "我的书架"
+                z: 2
+
+                IconButton {
+                    id: searchButton
+                    anchors.right: addButton.left
+                    anchors.rightMargin: 16
+                    anchors.verticalCenter: parent.verticalCenter
+                    iconSource: "qrc:/Images/shelf/search.png"
+                }
+                IconButton {
+                    id: addButton
+                    anchors.right: parent.right
+                    anchors.rightMargin: 16
+                    anchors.verticalCenter: parent.verticalCenter
+                    iconSource: "qrc:/Images/shelf/add.png"
+                }
+            }
+
             GridView{
                 id:bookshelfview;
                 anchors.fill: parent;

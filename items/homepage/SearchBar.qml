@@ -1,6 +1,7 @@
 import QtQuick 2.5
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.2
+import "../../common"
 
 ToolBar {
 
@@ -17,8 +18,8 @@ ToolBar {
             Layout.fillWidth: true
             onAccepted: doSearch(searchText.text)
         }
-        ToolButton {
-            id: searchButton
+        IconButton {
+            id: searchButton_home
             iconSource:"qrc:/Images/homepage/search.png"
             onClicked: doSearch(searchText.text)
         }

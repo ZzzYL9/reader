@@ -4,7 +4,7 @@ Item {
     id: root
     implicitWidth: rootwindow.width
     implicitHeight: 0.3*rootwindow.height
-    anchors.top: searchBar.bottom
+//    anchors.top: searchBar.bottom
 
     property alias count: pathView.count
     property alias currentIndex: pathView.currentIndex

@@ -3,13 +3,12 @@ import QtGraphicalEffects 1.0
 import "../../items/homepage"
 
 Item {
-    property alias grid_height: gridrec.height
-    property alias grid_width: gridrec.width
+//    implicitHeight: 0.25*rootwindow.height
+//    implicitWidth: rootwindow.width
     Rectangle {
         id:gridrec
-//        width: 300
-//        height: 200
-
+        width: gridviews.width
+        height: gridviews.height
         Component {
             id: booksortDelegate
             Item {

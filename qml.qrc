@@ -33,12 +33,6 @@
         <file>Images/guide/me_after.png</file>
         <file>Images/guide/me.png</file>
         <file>Images/homepage/search.png</file>
-        <file>Images/homepage/gridimg/IU1.jpg</file>
-        <file>Images/homepage/gridimg/IU2.jpg</file>
-        <file>Images/homepage/gridimg/IU3.jpg</file>
-        <file>Images/homepage/gridimg/IU4.jpg</file>
-        <file>Images/homepage/gridimg/IU5.jpg</file>
-        <file>Images/homepage/gridimg/IU6.jpg</file>
         <file>Images/shelf/add.png</file>
         <file>Images/shelf/search.png</file>
         <file>Images/readview/autoChangePage.png</file>
@@ -79,5 +73,8 @@
         <file>Images/homepage/gridimg/yan.png</file>
         <file>Images/homepage/gridimg/ke.png</file>
         <file>Images/homepage/gridimg/wen.png</file>
+        <file>views/HomeView/VideoView.qml</file>
+        <file>common/IconButton.qml</file>
+        <file>common/PaperRipple.qml</file>
     </qresource>
 </RCC>
