@@ -4,26 +4,26 @@ ListModel {
     id: gridBook
     ListElement {
         name: "经典名著"
-        portrait: "qrc:/Images/homepage/gridimg/IU1.jpg"
+        portrait: "qrc:/Images/homepage/gridimg/ming.png"
     }
     ListElement {
         name: "唐诗宋词"
-        portrait: "qrc:/Images/homepage/gridimg/IU2.jpg"
+        portrait: "qrc:/Images/homepage/gridimg/shi.png"
     }
     ListElement {
-        name: "外国巨作"
-        portrait: "qrc:/Images/homepage/gridimg/IU3.jpg"
+        name: "课程教材"
+        portrait: "qrc:/Images/homepage/gridimg/ke.png"
     }
     ListElement {
-        name: "精美散文"
-        portrait: "qrc:/Images/homepage/gridimg/IU4.jpg"
+        name: "参考书籍"
+        portrait: "qrc:/Images/homepage/gridimg/can.png"
     }
     ListElement {
-        name: "儿童故事"
-        portrait: "qrc:/Images/homepage/gridimg/IU5.jpg"
+        name: "实验手册"
+        portrait: "qrc:/Images/homepage/gridimg/yan.png"
     }
     ListElement {
         name: "时事新闻"
-        portrait: "qrc:/Images/homepage/gridimg/IU6.jpg"
+        portrait: "qrc:/Images/homepage/gridimg/wen.png"
     }
 }

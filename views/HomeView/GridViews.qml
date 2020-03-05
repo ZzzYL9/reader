@@ -40,9 +40,9 @@ Item {
 
                 Rectangle {
                     id: mask
-                    width: parent.width
-                    height: parent.height
-                    radius: height/2
+                    width: 1/3*parent.width
+                    height: 1/2*parent.height
+                    radius: width/2
                     color:"red"
                     visible: false
                 }

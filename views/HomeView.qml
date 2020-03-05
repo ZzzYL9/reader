@@ -26,18 +26,20 @@ Item {
         id: cirCleView
         anchors.margins: 5
         model: ListModel {
-            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/1.jpg' }
-            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/2.jpg' }
-            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/3.jpg' }
-            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/4.jpg' }
-            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/5.jpg' }
-            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/6.jpg' }
+            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/PHP.jpg' }
+            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/C++.jpg' }
+            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/deeplearning.png' }
+            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/python.jpg' }
+            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/cocos2d.jpg' }
+            ListElement { picUrl: 'qrc:/Images/homepage/switchimg/android.jpg' }
         }
 
         delegate: Item {
-            width: cirCleView.width
+            width: 1/2*cirCleView.width
             height: cirCleView.height
             Image {
+                width: 1/2*cirCleView.width
+                height: cirCleView.height
                 anchors.fill: parent
                 anchors.bottom: parent.bottom
                 source: picUrl
