@@ -30,8 +30,6 @@ Item {
                     source: portrait
                     //设置图片大小
                     sourceSize: Qt.size(parent.width-20, parent.height-20)
-//                    height: 80
-//                    width: 80
                     smooth: true
                     visible: false
                     anchors.horizontalCenter: parent.horizontalCenter
@@ -64,9 +62,10 @@ Item {
          GridView {
              id: grid
              clip: true
+             interactive: false //禁止滑动
              anchors.fill: parent
              cellWidth: 1/3*gridrec.width
-             cellHeight: 0.5*gridrec.height
+             cellHeight: 1/2*gridrec.height
 
              model: GridBook {}
              delegate: booksortDelegate

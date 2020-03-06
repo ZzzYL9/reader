@@ -26,12 +26,11 @@ Item {
 
     Text {
         id: title
-        x: 72
+        x: 20
+        font.pixelSize: 20
         anchors.verticalCenter: parent.verticalCenter
-//        font.family: UIConstants.sansFontFamily
         font.weight: Font.DemiBold
-//        font.pointSize: UIConstants.titleFontSize
-        color: "white"
+        color: "#666666"
     }
 }
 

@@ -7,7 +7,6 @@
         <file>views/HomeView.qml</file>
         <file>items/homepage/GridBook.qml</file>
         <file>items/bookshelf/TopBars.qml</file>
-        <file>items/bookshelf/BookDelegate.qml</file>
         <file>Globel_Object.qml</file>
         <file>items/bookshelf/Book_ShelfItem.qml</file>
         <file>qmldir</file>
@@ -32,9 +31,7 @@
         <file>Images/guide/homepage.png</file>
         <file>Images/guide/me_after.png</file>
         <file>Images/guide/me.png</file>
-        <file>Images/homepage/search.png</file>
         <file>Images/shelf/add.png</file>
-        <file>Images/shelf/search.png</file>
         <file>Images/readview/autoChangePage.png</file>
         <file>Images/readview/back.png</file>
         <file>Images/readview/brightness.png</file>
@@ -76,5 +73,8 @@
         <file>views/HomeView/VideoView.qml</file>
         <file>common/IconButton.qml</file>
         <file>common/PaperRipple.qml</file>
+        <file>Images/homepage/search.png</file>
+        <file>Images/shelf/search.png</file>
+        <file>Images/sortbook/back.png</file>
     </qresource>
 </RCC>

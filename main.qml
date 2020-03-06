@@ -40,7 +40,7 @@ ApplicationWindow {
                 id: topBars
                 height: 0.07*rootwindow.height
                 width: rootwindow.width
-                text: "我的书架"
+                text: qsTr("我的书架")
                 z: 2
 
                 IconButton {

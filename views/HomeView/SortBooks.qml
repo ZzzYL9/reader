@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 2.1
 import QtQuick.Layouts 1.3
 import QtQuick.Window 2.12
+import "../../common"
 
 Item {
 
@@ -11,8 +12,8 @@ Item {
         z:2
         RowLayout {
             anchors.fill: parent
-            ToolButton {
-                text: qsTr("‹")
+            IconButton {
+                iconSource:"qrc:/Images/sortbook/back.png"
                 onClicked: homestackview.pop()
             }
             Label {
