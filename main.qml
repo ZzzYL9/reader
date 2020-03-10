@@ -56,7 +56,17 @@ ApplicationWindow {
                     anchors.rightMargin: 16
                     anchors.verticalCenter: parent.verticalCenter
                     iconSource: "qrc:/Images/shelf/add.png"
+                    onClicked: {
+                        addbtn.addbtnrec.visible=false
+                        addbtn.addmenu.open()
+                    }
                 }
+            }
+
+            AddButton{
+                id:addbtn
+                x:addButton.x-80
+                y:addButton.y
             }
 
             GridView{

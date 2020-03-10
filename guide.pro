@@ -44,6 +44,7 @@ DISTFILES += \
     forms/GridViews.qml \
     items/BaseTabBar.qml \
     items/SearchBar.qml \
+    items/bookshelf/AddButton.qml \
     items/bookshelf/Book_ShelfItem.qml \
     items/bookshelf/TopBars.qml \
     items/bookshelf/readview/BookItem.qml \

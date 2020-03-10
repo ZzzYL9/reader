@@ -76,5 +76,9 @@
         <file>Images/homepage/search.png</file>
         <file>Images/shelf/search.png</file>
         <file>Images/sortbook/back.png</file>
+        <file>items/bookshelf/AddButton.qml</file>
+        <file>Images/shelf/folder.png</file>
+        <file>Images/shelf/import.png</file>
+        <file>Images/shelf/wifi.png</file>
     </qresource>
 </RCC>
