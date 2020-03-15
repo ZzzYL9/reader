@@ -71,8 +71,9 @@ ApplicationWindow {
 
             GridView{
                 id:bookshelfview;
-                anchors.fill: parent;
-//                anchors.centerIn: rootwindow
+//                anchors.fill: parent;
+                anchors.left: bookshelf.left
+                anchors.leftMargin: 2/13*cellWidth
                 width: parent.width;
                 height: parent.height;
                 cellWidth: 1/3*rootwindow.width;
@@ -112,24 +113,20 @@ ApplicationWindow {
                 anchors.centerIn: parent
             }
         }
-        Rectangle{
-            Text {
-                text: qsTr("我的")
-                anchors.centerIn: parent
-            }
-        }
+        MineView{}
     }
 
     footer: BaseTabBar{
         id: bar
-        height: 0.09*rootwindow.height
+//        tbheight: 0.08*rootwindow.height
+        height: 0.08*rootwindow.height
         width: rootwindow.width
         currentIndex: swipeview.currentIndex
         Component.onCompleted: {
-            myModel.append({ "modelText": "首页", "modelColor": "#000000", "modelColorG": "#148014", "modelSrc": "qrc:/Images/guide/homepage.png", "modelSrcG": "qrc:/Images/guide/homepage_after.png"})
-            myModel.append({ "modelText": "书架", "modelColor": "#000000", "modelColorG": "#148014", "modelSrc": "qrc:/Images/guide/books.png", "modelSrcG": "qrc:/Images/guide/books_after.png"})
-            myModel.append({ "modelText": "分析", "modelColor": "#000000", "modelColorG": "#148014", "modelSrc": "qrc:/Images/guide/analogy.png", "modelSrcG": "qrc:/Images/guide/analogy_after.png"})
-            myModel.append({ "modelText": "我的", "modelColor": "#000000", "modelColorG": "#148014", "modelSrc": "qrc:/Images/guide/me.png", "modelSrcG": "qrc:/Images/guide/me_after.png"})
+            myModel.append({ "modelText": "首页", "modelColor": "#000000", "modelColorG": "#1296db", "modelSrc": "qrc:/Images/guide/homepage.png", "modelSrcG": "qrc:/Images/guide/homepage_after.png"})
+            myModel.append({ "modelText": "书架", "modelColor": "#000000", "modelColorG": "#1296db", "modelSrc": "qrc:/Images/guide/books.png", "modelSrcG": "qrc:/Images/guide/books_after.png"})
+            myModel.append({ "modelText": "分析", "modelColor": "#000000", "modelColorG": "#1296db", "modelSrc": "qrc:/Images/guide/analogy.png", "modelSrcG": "qrc:/Images/guide/analogy_after.png"})
+            myModel.append({ "modelText": "我的", "modelColor": "#000000", "modelColorG": "#1296db", "modelSrc": "qrc:/Images/guide/me.png", "modelSrcG": "qrc:/Images/guide/me_after.png"})
         }
     }
 }

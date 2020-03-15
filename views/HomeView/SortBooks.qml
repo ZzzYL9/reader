@@ -13,7 +13,7 @@ Item {
         RowLayout {
             anchors.fill: parent
             IconButton {
-                iconSource:"qrc:/Images/sortbook/back.png"
+                iconSource:"qrc:/Images/common/back.png"
                 onClicked: homestackview.pop()
             }
             Label {

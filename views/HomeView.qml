@@ -13,7 +13,7 @@ Rectangle {
         id:searchBar
         height: 0.07*rootwindow.height
         width: rootwindow.width
-        z:2
+        z:3
 
         //搜索事件响应
         onDoSearch: {
@@ -38,7 +38,7 @@ Rectangle {
             anchors.top: parent.top
             anchors.left: parent.left
             anchors.right: parent.right
-            spacing: 16
+            spacing: 25
             //轮播
             //***************************************
             Rectangle{

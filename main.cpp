@@ -6,6 +6,9 @@
 #include<book_chapter.h>
 #include<book_settings.h>
 #include<read_view.h>
+#include "fileio.h"
+#include "get.h"
+
 int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
@@ -26,6 +29,15 @@ int main(int argc, char *argv[])
         if (!obj && url == objUrl)
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
+
+    FileIO fileio;
+    fileio.setSource("/root/qml_read/guide/views/data.json");
+
+    GET Get;
+
+    engine.rootContext()->setContextProperty("fileio",&fileio);
+    engine.rootContext()->setContextProperty("Get",&Get);
+
     engine.load(url);
 
     return app.exec();

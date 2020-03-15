@@ -21,7 +21,8 @@ Rectangle{
             height: parent.height;
             anchors.fill:parent;
             anchors.margins: 5
-            source: "https://www.cnblogs.com/skins/chinaheart/images/header.jpg"
+            source: "qrc:/Images/homepage/switchimg/learn.jpg"
+//            source: "https://www.cnblogs.com/skins/chinaheart/images/header.jpg"
         }
         MouseArea{
             anchors.fill: parent;

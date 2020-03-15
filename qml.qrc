@@ -6,7 +6,6 @@
         <file>items/homepage/SearchBar.qml</file>
         <file>views/HomeView.qml</file>
         <file>items/homepage/GridBook.qml</file>
-        <file>items/bookshelf/TopBars.qml</file>
         <file>Globel_Object.qml</file>
         <file>items/bookshelf/Book_ShelfItem.qml</file>
         <file>qmldir</file>
@@ -25,8 +24,6 @@
         <file>Images/guide/analogy.png</file>
         <file>Images/guide/books_after.png</file>
         <file>Images/guide/books.png</file>
-        <file>Images/guide/home_after.png</file>
-        <file>Images/guide/home.png</file>
         <file>Images/guide/homepage_after.png</file>
         <file>Images/guide/homepage.png</file>
         <file>Images/guide/me_after.png</file>
@@ -75,10 +72,32 @@
         <file>common/PaperRipple.qml</file>
         <file>Images/homepage/search.png</file>
         <file>Images/shelf/search.png</file>
-        <file>Images/sortbook/back.png</file>
         <file>items/bookshelf/AddButton.qml</file>
         <file>Images/shelf/folder.png</file>
         <file>Images/shelf/import.png</file>
         <file>Images/shelf/wifi.png</file>
+        <file>Images/my/help.png</file>
+        <file>Images/my/mybooks.png</file>
+        <file>views/MineView.qml</file>
+        <file>views/MineView/Help.qml</file>
+        <file>views/MineView/LoginView.qml</file>
+        <file>views/MineView/MyAccount.qml</file>
+        <file>views/MineView/MyBooks.qml</file>
+        <file>views/MineView/MyInfo.qml</file>
+        <file>views/MineView/MyNotes.qml</file>
+        <file>views/MineView/Setting.qml</file>
+        <file>views/savejson.js</file>
+        <file>views/data.json</file>
+        <file>Images/my/help_big.png</file>
+        <file>Images/my/myaccount.png</file>
+        <file>Images/my/myinfo.png</file>
+        <file>Images/my/note.png</file>
+        <file>Images/my/ring.png</file>
+        <file>Images/my/setting.png</file>
+        <file>Images/my/sign.png</file>
+        <file>Images/common/back.png</file>
+        <file>Images/my/headimg.png</file>
+        <file>Images/homepage/switchimg/learn.jpg</file>
+        <file>common/TopBars.qml</file>
     </qresource>
 </RCC>

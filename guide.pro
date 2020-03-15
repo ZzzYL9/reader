@@ -12,12 +12,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+LIBS+=-lcurl
+
 SOURCES += \
     background_setting.cpp \
     book_chapter.cpp \
     book_settings.cpp \
     curpage_setting.cpp \
+    fileio.cpp \
     font_setter.cpp \
+    get.cpp \
     main.cpp \
     read_view.cpp \
     reader_book.cpp \
@@ -41,12 +45,12 @@ DISTFILES += \
     QML/SearchBar.qml \
     common/IconButton.qml \
     common/PaperRipple.qml \
+    common/TopBars.qml \
     forms/GridViews.qml \
     items/BaseTabBar.qml \
     items/SearchBar.qml \
     items/bookshelf/AddButton.qml \
     items/bookshelf/Book_ShelfItem.qml \
-    items/bookshelf/TopBars.qml \
     items/bookshelf/readview/BookItem.qml \
     items/bookshelf/readview/ListItem.qml \
     items/bookshelf/readview/SettingButton.qml \
@@ -66,6 +70,15 @@ DISTFILES += \
     views/HomeView/GridViews.qml \
     views/HomeView/SortBooks.qml \
     views/HomeView/VideoView.qml \
+    views/MineView.qml \
+    views/MineView/Help.qml \
+    views/MineView/LoginView.qml \
+    views/MineView/MineView.qml \
+    views/MineView/MyAccount.qml \
+    views/MineView/MyBooks.qml \
+    views/MineView/MyInfo.qml \
+    views/MineView/MyNotes.qml \
+    views/MineView/Setting.qml \
     views/readview/CataBottom.qml \
     views/readview/ReadView.qml
 
@@ -74,7 +87,9 @@ HEADERS += \
     book_chapter.h \
     book_settings.h \
     curpage_setting.h \
+    fileio.h \
     font_setter.h \
+    get.h \
     read_view.h \
     reader_book.h \
     theme_setting.h
