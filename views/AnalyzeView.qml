@@ -22,8 +22,8 @@ Item{
         Rectangle{//模拟线段
             anchors.top: analyzebar.bottom
             width:rootwindow.width //长
-            height:2  //高
-            color:"#bfbfbf" //颜色
+            height:8  //高
+            color:"#e6e6e6" //颜色
         }
         RowLayout {
             id: analyzebar
@@ -51,6 +51,7 @@ Item{
                     anchors.top: analyze_words.bottom
                     anchors.topMargin: 10
                     horizontalAlignment: Text.AlignHCenter //水平方向居中
+                    font.bold: true
                     text: qsTr("分析词频")
                 }
             }
@@ -73,6 +74,7 @@ Item{
                     anchors.top: draw_words.bottom
                     anchors.topMargin: 10
                     horizontalAlignment: Text.AlignHCenter //水平方向居中
+                    font.bold: true
                     text: qsTr("绘制词云")
                 }
             }
@@ -95,6 +97,7 @@ Item{
                     anchors.top: men_relationship.bottom
                     anchors.topMargin: 10
                     horizontalAlignment: Text.AlignHCenter //水平方向居中
+                    font.bold: true
                     text: qsTr("人物关系")
                 }
             }
@@ -131,9 +134,19 @@ Item{
                 anchors.top: selectrec.bottom
                 anchors.topMargin: 10
                 anchors.horizontalCenter: parent.horizontalCenter
+                style: ButtonStyle{
+                    background: Rectangle {
+                        //设置圆角
+                        radius: 10;
+                        color: "#f1ecec"
+                    }
+
+                }
+
                 Text {
                     id: selecttext
                     anchors.centerIn: parent
+                    font.bold: true
                     text: qsTr("选择文章")
                 }
             }

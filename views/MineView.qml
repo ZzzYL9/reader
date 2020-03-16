@@ -65,11 +65,12 @@ StackView{
             }
         }
 
-        IconButton {
+        Button {
             id: button3
-//            flat: true
+            flat: true
             Text {
                 id: myfollow
+                anchors.centerIn: parent
                 text: qsTr("我的关注")
             }
             anchors.bottom: parent.bottom
@@ -80,11 +81,12 @@ StackView{
             width: wodepage.width/4
         }
 
-        IconButton {
+        Button {
             id: button4
-//            flat: true
+            flat: true
             Text {
                 id: mypush
+                anchors.centerIn: parent
                 text: qsTr("我的发布")
             }
             anchors.bottom: parent.bottom

@@ -28,6 +28,7 @@ Item {
         id: title
         x: 20
         font.pixelSize: 20
+        font.bold: true
         anchors.verticalCenter: parent.verticalCenter
         font.weight: Font.DemiBold
         color: "#666666"

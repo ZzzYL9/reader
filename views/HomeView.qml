@@ -102,31 +102,68 @@ Rectangle {
             }
             //******************************************
 
+            Rectangle{//模拟线段
+//                anchors.bottom: gridviewrec.top
+                width:rootwindow.width //长
+                height:8  //高
+                color:"#e6e6e6" //颜色
+            }
+
             //网格排列
             //******************************************
             Rectangle{
+                id:gridviewrec
                 width: rootwindow.width/2
                 height: gridviews.height
 
                 GridViews{
                     id:gridviews
                     width: rootwindow.width
-                    height: 0.25*rootwindow.height
+                    height: 0.2*rootwindow.height
                 }
             }
             //******************************************
 
+            Rectangle{//模拟线段
+//                anchors.top: gridviewrec.bottom
+                width:rootwindow.width //长
+                height:8  //高
+                color:"#e6e6e6" //颜色
+            }
+
             //猜你喜欢
             //******************************************
             Rectangle{
-                width: rootwindow.width/2
-                height: videoview.height
-
-                VideoView{
-                    id:videoview
-                    width: rootwindow.width
-                    height: 0.3*rootwindow.height
+                id:likerec
+                width: rootwindow.width
+                height: 1/3*rootwindow.height
+                color: "#cdcdcd"
+                radius: 10
+                Text {
+                    id: like
+                    anchors.bottom: likevideorec.top
+                    anchors.left: parent.left
+                    anchors.leftMargin: 10
+                    font.bold: true
+                    text: qsTr("猜你喜欢")
                 }
+                Rectangle{
+                    id:likevideorec
+                    width: parent.width-20
+                    height: parent.height-40
+                    color: "#f1ecec"
+                    anchors.bottom: likerec.bottom
+                    anchors.bottomMargin: 10
+                    anchors.horizontalCenter: parent.horizontalCenter
+//                    VideoView{
+//                        id:videoview
+//                        width: parent.width/1.5
+//                        height: 0.3*rootwindow.height
+//                        anchors.centerIn: parent
+//                    }
+                }
+
+
             }
             //******************************************
         }

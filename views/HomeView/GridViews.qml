@@ -29,9 +29,10 @@ Item {
                     id:sourceimage
                     source: portrait
                     //设置图片大小
-                    sourceSize: Qt.size(parent.width-20, parent.height-20)
+                    sourceSize: Qt.size(parent.width/2, parent.height/2)
                     smooth: true
                     visible: false
+//                    anchors.centerIn: parent
                     anchors.horizontalCenter: parent.horizontalCenter
                 }
 
@@ -50,11 +51,14 @@ Item {
                     maskSource: mask
                 }
 
+                //图片下的文字
                 Text {
                     text: name
+                    font.bold: true
                     anchors.top: sourceimage.bottom
+                    anchors.topMargin: 5
                     anchors.horizontalCenter: parent.horizontalCenter
-                    color: wrapper.GridView.isCurrentItem ? "grey" : "black"
+//                    color: wrapper.GridView.isCurrentItem ? "grey" : "black"
                 }
              }
          }
@@ -67,9 +71,10 @@ Item {
              cellWidth: 1/3*gridrec.width
              cellHeight: 1/2*gridrec.height
 
+
              model: GridBook {}
              delegate: booksortDelegate
-             highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
+//             highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
              focus: true
          }
      }

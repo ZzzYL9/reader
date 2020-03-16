@@ -12,16 +12,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-LIBS+=-lcurl
+#LIBS+=-lcurl
 
 SOURCES += \
     background_setting.cpp \
     book_chapter.cpp \
     book_settings.cpp \
     curpage_setting.cpp \
-    fileio.cpp \
+#    fileio.cpp \
     font_setter.cpp \
-    get.cpp \
+#    get.cpp \
     main.cpp \
     read_view.cpp \
     reader_book.cpp \
@@ -88,9 +88,9 @@ HEADERS += \
     book_chapter.h \
     book_settings.h \
     curpage_setting.h \
-    fileio.h \
+#    fileio.h \
     font_setter.h \
-    get.h \
+#    get.h \
     read_view.h \
     reader_book.h \
     theme_setting.h

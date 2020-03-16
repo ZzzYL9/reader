@@ -18,6 +18,7 @@ TopBars {
         TextField {
             style: TextFieldStyle {
                     textColor: "black"
+                    font.bold: true
                     background: Rectangle {
                         color: "transparent"//背景颜色
                         border.color: "gray"//边框颜色

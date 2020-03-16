@@ -6,8 +6,8 @@
 #include<book_chapter.h>
 #include<book_settings.h>
 #include<read_view.h>
-#include "fileio.h"
-#include "get.h"
+//#include "fileio.h"
+//#include "get.h"
 
 int main(int argc, char *argv[])
 {
@@ -30,13 +30,13 @@ int main(int argc, char *argv[])
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
 
-    FileIO fileio;
-    fileio.setSource("/root/qml_read/guide/views/data.json");
+//    FileIO fileio;
+//    fileio.setSource("/root/qml_read/guide/views/data.json");
 
-    GET Get;
+//    GET Get;
 
-    engine.rootContext()->setContextProperty("fileio",&fileio);
-    engine.rootContext()->setContextProperty("Get",&Get);
+//    engine.rootContext()->setContextProperty("fileio",&fileio);
+//    engine.rootContext()->setContextProperty("Get",&Get);
 
     engine.load(url);
 

@@ -40,7 +40,7 @@ DISTNAME      = libguide.so1.0.0
 DISTDIR = /root/qml_read/guide/.tmp/libguide.so1.0.0
 LINK          = /opt/android-sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ -D__ANDROID_API__=21 -target armv7-none-linux-androideabi -gcc-toolchain /opt/android-sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64 -fno-limit-debug-info -Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libatomic.a -Wl,--exclude-libs,libunwind.a
 LFLAGS        = --sysroot=/opt/android-sdk/ndk-bundle/platforms/android-21/arch-arm/ -Wl,-soname,libguide.so -Wl,-rpath=/opt/Qt5.13.0/5.13.0/android_armv7/lib -Wl,--no-undefined -Wl,-z,noexecstack -shared
-LIBS          = $(SUBLIBS) -lcurl /opt/Qt5.13.0/5.13.0/android_armv7/lib/libQt5Quick.so -L/opt/android/android-ndk-r19c/sources/cxx-stl/llvm-libc++/libs/armeabi-v7a /opt/Qt5.13.0/5.13.0/android_armv7/lib/libQt5Gui.so /opt/Qt5.13.0/5.13.0/android_armv7/lib/libQt5Qml.so /opt/Qt5.13.0/5.13.0/android_armv7/lib/libQt5Network.so /opt/Qt5.13.0/5.13.0/android_armv7/lib/libQt5Core.so -lGLESv2  -L/opt/android-sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/libs/armeabi-v7a /opt/android-sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/libs/armeabi-v7a/libc++.so.21 -llog -lz -lm -ldl -lc
+LIBS          = $(SUBLIBS) /opt/Qt5.13.0/5.13.0/android_armv7/lib/libQt5Quick.so -L/opt/android/android-ndk-r19c/sources/cxx-stl/llvm-libc++/libs/armeabi-v7a /opt/Qt5.13.0/5.13.0/android_armv7/lib/libQt5Gui.so /opt/Qt5.13.0/5.13.0/android_armv7/lib/libQt5Qml.so /opt/Qt5.13.0/5.13.0/android_armv7/lib/libQt5Network.so /opt/Qt5.13.0/5.13.0/android_armv7/lib/libQt5Core.so -lGLESv2  -L/opt/android-sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/libs/armeabi-v7a /opt/android-sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/libs/armeabi-v7a/libc++.so.21 -llog -lz -lm -ldl -lc
 AR            = /opt/android-sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-ar cqs
 RANLIB        = /opt/android-sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin/arm-linux-androideabi-ranlib
 SED           = sed
@@ -56,26 +56,20 @@ SOURCES       = background_setting.cpp \
 		book_chapter.cpp \
 		book_settings.cpp \
 		curpage_setting.cpp \
-		fileio.cpp \
 		font_setter.cpp \
-		get.cpp \
 		main.cpp \
 		read_view.cpp \
 		reader_book.cpp \
 		theme_setting.cpp qrc_qml.cpp \
 		moc_book_chapter.cpp \
 		moc_book_settings.cpp \
-		moc_fileio.cpp \
-		moc_get.cpp \
 		moc_read_view.cpp \
 		moc_reader_book.cpp
 OBJECTS       = background_setting.o \
 		book_chapter.o \
 		book_settings.o \
 		curpage_setting.o \
-		fileio.o \
 		font_setter.o \
-		get.o \
 		main.o \
 		read_view.o \
 		reader_book.o \
@@ -83,8 +77,6 @@ OBJECTS       = background_setting.o \
 		qrc_qml.o \
 		moc_book_chapter.o \
 		moc_book_settings.o \
-		moc_fileio.o \
-		moc_get.o \
 		moc_read_view.o \
 		moc_reader_book.o
 DIST          = QML/SearchBar.qml \
@@ -304,18 +296,14 @@ DIST          = QML/SearchBar.qml \
 		book_chapter.h \
 		book_settings.h \
 		curpage_setting.h \
-		fileio.h \
 		font_setter.h \
-		get.h \
 		read_view.h \
 		reader_book.h \
 		theme_setting.h background_setting.cpp \
 		book_chapter.cpp \
 		book_settings.cpp \
 		curpage_setting.cpp \
-		fileio.cpp \
 		font_setter.cpp \
-		get.cpp \
 		main.cpp \
 		read_view.cpp \
 		reader_book.cpp \
@@ -708,8 +696,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents qml.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /opt/Qt5.13.0/5.13.0/android_armv7/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents background_setting.h book_chapter.h book_settings.h curpage_setting.h fileio.h font_setter.h get.h read_view.h reader_book.h theme_setting.h $(DISTDIR)/
-	$(COPY_FILE) --parents background_setting.cpp book_chapter.cpp book_settings.cpp curpage_setting.cpp fileio.cpp font_setter.cpp get.cpp main.cpp read_view.cpp reader_book.cpp theme_setting.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents background_setting.h book_chapter.h book_settings.h curpage_setting.h font_setter.h read_view.h reader_book.h theme_setting.h $(DISTDIR)/
+	$(COPY_FILE) --parents background_setting.cpp book_chapter.cpp book_settings.cpp curpage_setting.cpp font_setter.cpp main.cpp read_view.cpp reader_book.cpp theme_setting.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -821,6 +809,7 @@ qrc_qml.cpp: qml.qrc \
 		Images/common/back.png \
 		Images/analyze/draw_words.png \
 		Images/analyze/men_relationship.png \
+		Images/analyze/book.jpg \
 		Images/analyze/analyze_words.png \
 		Images/shelf/add.png \
 		Images/shelf/search.png \
@@ -1158,9 +1147,7 @@ qrc_qml.cpp: qml.qrc \
 		font_setter.h \
 		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtGui/QFont \
 		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtGui/qfont.h \
-		read_view.h \
-		fileio.h \
-		get.h
+		read_view.h
 	/opt/Qt5.13.0/5.13.0/android_armv7/bin/rcc -name qml qml.qrc -o qrc_qml.cpp
 
 compiler_moc_predefs_make_all: moc_predefs.h
@@ -1169,9 +1156,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /opt/Qt5.13.0/5.13.0/android_armv7/mkspecs/features/data/dummy.cpp
 	/opt/android-sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ -D__ANDROID_API__=21 -target armv7-none-linux-androideabi -gcc-toolchain /opt/android-sdk/ndk-bundle/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64 -fno-limit-debug-info -DANDROID_HAS_WSTRING --sysroot=/opt/android-sdk/ndk-bundle/sysroot -isystem /opt/android-sdk/ndk-bundle/sysroot/usr/include/arm-linux-androideabi -isystem /opt/android-sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/include -isystem /opt/android-sdk/ndk-bundle/sources/android/support/include -isystem /opt/android-sdk/ndk-bundle/sources/cxx-stl/llvm-libc++abi/include -fstack-protector-strong -DANDROID -march=armv7-a -mfloat-abi=softfp -mfpu=vfp -fno-builtin-memmove -g -g -marm -O0 -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /opt/Qt5.13.0/5.13.0/android_armv7/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_book_chapter.cpp moc_book_settings.cpp moc_fileio.cpp moc_get.cpp moc_read_view.cpp moc_reader_book.cpp
+compiler_moc_header_make_all: moc_book_chapter.cpp moc_book_settings.cpp moc_read_view.cpp moc_reader_book.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_book_chapter.cpp moc_book_settings.cpp moc_fileio.cpp moc_get.cpp moc_read_view.cpp moc_reader_book.cpp
+	-$(DEL_FILE) moc_book_chapter.cpp moc_book_settings.cpp moc_read_view.cpp moc_reader_book.cpp
 moc_book_chapter.cpp: book_chapter.h \
 		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QObject \
 		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qobject.h \
@@ -1325,406 +1312,6 @@ moc_book_settings.cpp: book_settings.h \
 		moc_predefs.h \
 		/opt/Qt5.13.0/5.13.0/android_armv7/bin/moc
 	/opt/Qt5.13.0/5.13.0/android_armv7/bin/moc $(DEFINES) --include /root/qml_read/guide/moc_predefs.h -I/opt/Qt5.13.0/5.13.0/android_armv7/mkspecs/android-clang -I/root/qml_read/guide -I/opt/Qt5.13.0/5.13.0/android_armv7/include -I/opt/Qt5.13.0/5.13.0/android_armv7/include/QtQuick -I/opt/Qt5.13.0/5.13.0/android_armv7/include/QtGui -I/opt/Qt5.13.0/5.13.0/android_armv7/include/QtQml -I/opt/Qt5.13.0/5.13.0/android_armv7/include/QtNetwork -I/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore -I/opt/android-sdk/ndk-bundle/sysroot/usr/include/arm-linux-androideabi -I/opt/android-sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/include -I/opt/android-sdk/ndk-bundle/sources/android/support/include -I/opt/android-sdk/ndk-bundle/sources/cxx-stl/llvm-libc++abi/include -I/opt/android-sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/8.0.2/include -I/opt/android-sdk/ndk-bundle/sysroot/usr/include book_settings.h -o moc_book_settings.cpp
-
-moc_fileio.cpp: fileio.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QtCore \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QtCoreDepends \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qglobal.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qconfig-bootstrapped.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qconfig.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtcore-config.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsystemdetection.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qprocessordetection.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcompilerdetection.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtypeinfo.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsysinfo.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlogging.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qflags.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qatomic.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbasicatomic.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qatomic_bootstrap.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qgenericatomic.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qatomic_cxx11.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qatomic_msvc.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qglobalstatic.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmutex.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qnumeric.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qversiontagging.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstractanimation.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qobject.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qobjectdefs.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qnamespace.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qobjectdefs_impl.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstring.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qchar.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbytearray.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qrefcount.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qarraydata.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringliteral.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringalgorithms.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringview.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringbuilder.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlist.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qalgorithms.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qiterator.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qhashfunctions.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpair.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qvector.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpoint.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbytearraylist.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringlist.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qregexp.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringmatcher.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcoreevent.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qscopedpointer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmetatype.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qvarlengtharray.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcontainerfwd.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qobject_impl.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstracteventdispatcher.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qeventloop.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qvariant.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmap.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdebug.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qhash.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtextstream.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qiodevice.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlocale.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qshareddata.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qset.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcontiguouscache.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsharedpointer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsharedpointer_impl.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstractnativeeventfilter.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstractproxymodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstractstate.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstracttransition.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qanimationgroup.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qarraydataops.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qarraydatapointer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbasictimer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbitarray.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbuffer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbytearraymatcher.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcache.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcborarray.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcborvalue.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdatetime.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcborcommon.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qregularexpression.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qurl.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qurlquery.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/quuid.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcbormap.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcborstream.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfloat16.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcollator.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcommandlineoption.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcommandlineparser.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qconcatenatetablesproxymodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcryptographichash.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdatastream.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdeadlinetimer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qelapsedtimer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdir.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfileinfo.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfile.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfiledevice.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdiriterator.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qeasingcurve.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qendian.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qeventtransition.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qexception.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfactoryinterface.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfileselector.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QObject \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QStringList \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfilesystemwatcher.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfinalstate.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfuture.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfutureinterface.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qrunnable.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qresultstore.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfuturesynchronizer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfuturewatcher.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qhistorystate.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qidentityproxymodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qisenum.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qitemselectionmodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qjsonarray.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qjsonvalue.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qjsondocument.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qjsonobject.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlibrary.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlibraryinfo.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qversionnumber.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qline.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlinkedlist.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlockfile.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qloggingcategory.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmargins.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmath.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmessageauthenticationcode.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmetaobject.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmimedata.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmimedatabase.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmimetype.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qobjectcleanuphandler.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qoperatingsystemversion.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qparallelanimationgroup.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpauseanimation.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qplugin.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpointer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpluginloader.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qprocess.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpropertyanimation.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qvariantanimation.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qqueue.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qrandom.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qreadwritelock.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qrect.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsize.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qresource.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsavefile.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qscopedvaluerollback.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qscopeguard.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsemaphore.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsequentialanimationgroup.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsettings.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsharedmemory.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsignalmapper.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsignaltransition.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsocketnotifier.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsortfilterproxymodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstack.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstandardpaths.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstate.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstatemachine.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstorageinfo.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringlistmodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsystemsemaphore.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtemporarydir.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtemporaryfile.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtextboundaryfinder.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtextcodec.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qthread.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qthreadpool.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qthreadstorage.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtimeline.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtimer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtimezone.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtranslator.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtransposeproxymodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtypetraits.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qwaitcondition.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qwineventnotifier.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qxmlstream.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtcoreversion.h \
-		moc_predefs.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/bin/moc
-	/opt/Qt5.13.0/5.13.0/android_armv7/bin/moc $(DEFINES) --include /root/qml_read/guide/moc_predefs.h -I/opt/Qt5.13.0/5.13.0/android_armv7/mkspecs/android-clang -I/root/qml_read/guide -I/opt/Qt5.13.0/5.13.0/android_armv7/include -I/opt/Qt5.13.0/5.13.0/android_armv7/include/QtQuick -I/opt/Qt5.13.0/5.13.0/android_armv7/include/QtGui -I/opt/Qt5.13.0/5.13.0/android_armv7/include/QtQml -I/opt/Qt5.13.0/5.13.0/android_armv7/include/QtNetwork -I/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore -I/opt/android-sdk/ndk-bundle/sysroot/usr/include/arm-linux-androideabi -I/opt/android-sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/include -I/opt/android-sdk/ndk-bundle/sources/android/support/include -I/opt/android-sdk/ndk-bundle/sources/cxx-stl/llvm-libc++abi/include -I/opt/android-sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/8.0.2/include -I/opt/android-sdk/ndk-bundle/sysroot/usr/include fileio.h -o moc_fileio.cpp
-
-moc_get.cpp: get.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QtCore \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QtCoreDepends \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qglobal.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qconfig-bootstrapped.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qconfig.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtcore-config.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsystemdetection.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qprocessordetection.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcompilerdetection.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtypeinfo.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsysinfo.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlogging.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qflags.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qatomic.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbasicatomic.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qatomic_bootstrap.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qgenericatomic.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qatomic_cxx11.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qatomic_msvc.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qglobalstatic.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmutex.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qnumeric.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qversiontagging.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstractanimation.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qobject.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qobjectdefs.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qnamespace.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qobjectdefs_impl.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstring.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qchar.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbytearray.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qrefcount.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qarraydata.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringliteral.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringalgorithms.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringview.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringbuilder.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlist.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qalgorithms.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qiterator.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qhashfunctions.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpair.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qvector.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpoint.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbytearraylist.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringlist.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qregexp.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringmatcher.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcoreevent.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qscopedpointer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmetatype.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qvarlengtharray.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcontainerfwd.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qobject_impl.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstracteventdispatcher.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qeventloop.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qvariant.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmap.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdebug.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qhash.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtextstream.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qiodevice.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlocale.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qshareddata.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qset.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcontiguouscache.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsharedpointer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsharedpointer_impl.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstractnativeeventfilter.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstractproxymodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstractstate.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstracttransition.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qanimationgroup.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qarraydataops.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qarraydatapointer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbasictimer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbitarray.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbuffer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbytearraymatcher.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcache.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcborarray.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcborvalue.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdatetime.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcborcommon.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qregularexpression.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qurl.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qurlquery.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/quuid.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcbormap.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcborstream.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfloat16.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcollator.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcommandlineoption.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcommandlineparser.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qconcatenatetablesproxymodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcryptographichash.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdatastream.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdeadlinetimer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qelapsedtimer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdir.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfileinfo.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfile.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfiledevice.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdiriterator.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qeasingcurve.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qendian.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qeventtransition.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qexception.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfactoryinterface.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfileselector.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QObject \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QStringList \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfilesystemwatcher.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfinalstate.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfuture.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfutureinterface.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qrunnable.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qresultstore.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfuturesynchronizer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfuturewatcher.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qhistorystate.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qidentityproxymodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qisenum.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qitemselectionmodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qjsonarray.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qjsonvalue.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qjsondocument.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qjsonobject.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlibrary.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlibraryinfo.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qversionnumber.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qline.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlinkedlist.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlockfile.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qloggingcategory.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmargins.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmath.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmessageauthenticationcode.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmetaobject.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmimedata.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmimedatabase.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmimetype.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qobjectcleanuphandler.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qoperatingsystemversion.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qparallelanimationgroup.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpauseanimation.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qplugin.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpointer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpluginloader.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qprocess.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpropertyanimation.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qvariantanimation.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qqueue.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qrandom.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qreadwritelock.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qrect.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsize.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qresource.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsavefile.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qscopedvaluerollback.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qscopeguard.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsemaphore.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsequentialanimationgroup.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsettings.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsharedmemory.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsignalmapper.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsignaltransition.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsocketnotifier.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsortfilterproxymodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstack.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstandardpaths.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstate.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstatemachine.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstorageinfo.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringlistmodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsystemsemaphore.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtemporarydir.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtemporaryfile.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtextboundaryfinder.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtextcodec.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qthread.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qthreadpool.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qthreadstorage.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtimeline.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtimer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtimezone.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtranslator.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtransposeproxymodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtypetraits.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qwaitcondition.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qwineventnotifier.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qxmlstream.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtcoreversion.h \
-		moc_predefs.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/bin/moc
-	/opt/Qt5.13.0/5.13.0/android_armv7/bin/moc $(DEFINES) --include /root/qml_read/guide/moc_predefs.h -I/opt/Qt5.13.0/5.13.0/android_armv7/mkspecs/android-clang -I/root/qml_read/guide -I/opt/Qt5.13.0/5.13.0/android_armv7/include -I/opt/Qt5.13.0/5.13.0/android_armv7/include/QtQuick -I/opt/Qt5.13.0/5.13.0/android_armv7/include/QtGui -I/opt/Qt5.13.0/5.13.0/android_armv7/include/QtQml -I/opt/Qt5.13.0/5.13.0/android_armv7/include/QtNetwork -I/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore -I/opt/android-sdk/ndk-bundle/sysroot/usr/include/arm-linux-androideabi -I/opt/android-sdk/ndk-bundle/sources/cxx-stl/llvm-libc++/include -I/opt/android-sdk/ndk-bundle/sources/android/support/include -I/opt/android-sdk/ndk-bundle/sources/cxx-stl/llvm-libc++abi/include -I/opt/android-sdk/ndk-bundle/toolchains/llvm/prebuilt/linux-x86_64/lib64/clang/8.0.2/include -I/opt/android-sdk/ndk-bundle/sysroot/usr/include get.h -o moc_get.cpp
 
 moc_read_view.cpp: read_view.h \
 		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QObject \
@@ -2189,205 +1776,6 @@ book_settings.o: book_settings.cpp book_settings.h \
 curpage_setting.o: curpage_setting.cpp curpage_setting.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o curpage_setting.o curpage_setting.cpp
 
-fileio.o: fileio.cpp /opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QStandardPaths \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstandardpaths.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringlist.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlist.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qalgorithms.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qglobal.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qconfig-bootstrapped.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qconfig.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtcore-config.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsystemdetection.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qprocessordetection.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcompilerdetection.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtypeinfo.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsysinfo.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlogging.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qflags.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qatomic.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbasicatomic.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qatomic_bootstrap.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qgenericatomic.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qatomic_cxx11.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qatomic_msvc.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qglobalstatic.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmutex.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qnumeric.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qversiontagging.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qiterator.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qrefcount.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qarraydata.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qhashfunctions.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstring.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qchar.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbytearray.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qnamespace.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringliteral.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringalgorithms.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringview.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringbuilder.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpair.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qvector.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpoint.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbytearraylist.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qregexp.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringmatcher.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qobjectdefs.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qobjectdefs_impl.h \
-		fileio.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QtCore \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QtCoreDepends \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstractanimation.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qobject.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcoreevent.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qscopedpointer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmetatype.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qvarlengtharray.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcontainerfwd.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qobject_impl.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstracteventdispatcher.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qeventloop.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qvariant.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmap.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdebug.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qhash.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtextstream.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qiodevice.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlocale.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qshareddata.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qset.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcontiguouscache.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsharedpointer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsharedpointer_impl.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstractnativeeventfilter.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstractproxymodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstractstate.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstracttransition.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qanimationgroup.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qarraydataops.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qarraydatapointer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbasictimer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbitarray.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbuffer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbytearraymatcher.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcache.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcborarray.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcborvalue.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdatetime.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcborcommon.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qregularexpression.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qurl.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qurlquery.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/quuid.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcbormap.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcborstream.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfloat16.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcollator.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcommandlineoption.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcommandlineparser.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qconcatenatetablesproxymodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcryptographichash.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdatastream.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdeadlinetimer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qelapsedtimer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdir.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfileinfo.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfile.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfiledevice.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdiriterator.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qeasingcurve.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qendian.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qeventtransition.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qexception.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfactoryinterface.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfileselector.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QObject \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QStringList \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfilesystemwatcher.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfinalstate.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfuture.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfutureinterface.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qrunnable.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qresultstore.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfuturesynchronizer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfuturewatcher.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qhistorystate.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qidentityproxymodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qisenum.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qitemselectionmodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qjsonarray.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qjsonvalue.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qjsondocument.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qjsonobject.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlibrary.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlibraryinfo.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qversionnumber.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qline.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlinkedlist.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlockfile.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qloggingcategory.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmargins.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmath.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmessageauthenticationcode.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmetaobject.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmimedata.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmimedatabase.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmimetype.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qobjectcleanuphandler.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qoperatingsystemversion.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qparallelanimationgroup.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpauseanimation.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qplugin.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpointer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpluginloader.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qprocess.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpropertyanimation.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qvariantanimation.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qqueue.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qrandom.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qreadwritelock.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qrect.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsize.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qresource.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsavefile.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qscopedvaluerollback.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qscopeguard.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsemaphore.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsequentialanimationgroup.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsettings.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsharedmemory.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsignalmapper.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsignaltransition.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsocketnotifier.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsortfilterproxymodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstack.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstate.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstatemachine.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstorageinfo.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringlistmodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsystemsemaphore.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtemporarydir.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtemporaryfile.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtextboundaryfinder.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtextcodec.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qthread.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qthreadpool.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qthreadstorage.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtimeline.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtimer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtimezone.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtranslator.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtransposeproxymodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtypetraits.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qwaitcondition.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qwineventnotifier.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qxmlstream.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtcoreversion.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o fileio.o fileio.cpp
-
 font_setter.o: font_setter.cpp font_setter.h \
 		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QObject \
 		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qobject.h \
@@ -2456,204 +1844,6 @@ font_setter.o: font_setter.cpp font_setter.h \
 		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qhash.h \
 		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsharedpointer_impl.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o font_setter.o font_setter.cpp
-
-get.o: get.cpp get.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QtCore \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QtCoreDepends \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qglobal.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qconfig-bootstrapped.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qconfig.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtcore-config.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsystemdetection.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qprocessordetection.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcompilerdetection.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtypeinfo.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsysinfo.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlogging.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qflags.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qatomic.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbasicatomic.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qatomic_bootstrap.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qgenericatomic.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qatomic_cxx11.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qatomic_msvc.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qglobalstatic.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmutex.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qnumeric.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qversiontagging.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstractanimation.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qobject.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qobjectdefs.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qnamespace.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qobjectdefs_impl.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstring.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qchar.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbytearray.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qrefcount.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qarraydata.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringliteral.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringalgorithms.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringview.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringbuilder.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlist.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qalgorithms.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qiterator.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qhashfunctions.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpair.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qvector.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpoint.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbytearraylist.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringlist.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qregexp.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringmatcher.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcoreevent.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qscopedpointer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmetatype.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qvarlengtharray.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcontainerfwd.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qobject_impl.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstracteventdispatcher.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qeventloop.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstractitemmodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qvariant.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmap.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdebug.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qhash.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtextstream.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qiodevice.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlocale.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qshareddata.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qset.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcontiguouscache.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsharedpointer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsharedpointer_impl.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstractnativeeventfilter.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstractproxymodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstractstate.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qabstracttransition.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qanimationgroup.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qarraydataops.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qarraydatapointer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbasictimer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbitarray.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbuffer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qbytearraymatcher.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcache.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcborarray.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcborvalue.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdatetime.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcborcommon.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qregularexpression.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qurl.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qurlquery.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/quuid.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcbormap.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcborstream.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfloat16.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcollator.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcommandlineoption.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcommandlineparser.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcoreapplication.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qconcatenatetablesproxymodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qcryptographichash.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdatastream.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdeadlinetimer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qelapsedtimer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdir.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfileinfo.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfile.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfiledevice.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdiriterator.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qeasingcurve.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qendian.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qeventtransition.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qexception.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfactoryinterface.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfileselector.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QObject \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QStringList \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfilesystemwatcher.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfinalstate.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfuture.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfutureinterface.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qrunnable.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qresultstore.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfuturesynchronizer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfuturewatcher.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qhistorystate.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qidentityproxymodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qisenum.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qitemselectionmodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qjsonarray.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qjsonvalue.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qjsondocument.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qjsonobject.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlibrary.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlibraryinfo.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qversionnumber.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qline.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlinkedlist.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qlockfile.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qloggingcategory.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmargins.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmath.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmessageauthenticationcode.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmetaobject.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmimedata.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmimedatabase.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qmimetype.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qobjectcleanuphandler.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qoperatingsystemversion.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qparallelanimationgroup.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpauseanimation.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qplugin.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpointer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpluginloader.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qprocess.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qpropertyanimation.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qvariantanimation.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qqueue.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qrandom.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qreadwritelock.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qrect.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsize.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qresource.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsavefile.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qscopedvaluerollback.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qscopeguard.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsemaphore.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsequentialanimationgroup.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsettings.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsharedmemory.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsignalmapper.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsignaltransition.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsocketnotifier.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsortfilterproxymodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstack.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstandardpaths.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstate.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstatemachine.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstorageinfo.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qstringlistmodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qsystemsemaphore.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtemporarydir.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtemporaryfile.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtextboundaryfinder.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtextcodec.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qthread.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qthreadpool.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qthreadstorage.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtimeline.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtimer.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtimezone.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtranslator.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtransposeproxymodel.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtypetraits.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qwaitcondition.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qwineventnotifier.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qxmlstream.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtcoreversion.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o get.o get.cpp
 
 main.o: main.cpp /opt/Qt5.13.0/5.13.0/android_armv7/include/QtGui/QGuiApplication \
 		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtGui/qguiapplication.h \
@@ -2972,9 +2162,7 @@ main.o: main.cpp /opt/Qt5.13.0/5.13.0/android_armv7/include/QtGui/QGuiApplicatio
 		font_setter.h \
 		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtGui/QFont \
 		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtGui/qfont.h \
-		read_view.h \
-		fileio.h \
-		get.h
+		read_view.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 read_view.o: read_view.cpp read_view.h \
@@ -3274,12 +2462,6 @@ moc_book_chapter.o: moc_book_chapter.cpp
 
 moc_book_settings.o: moc_book_settings.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_book_settings.o moc_book_settings.cpp
-
-moc_fileio.o: moc_fileio.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_fileio.o moc_fileio.cpp
-
-moc_get.o: moc_get.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_get.o moc_get.cpp
 
 moc_read_view.o: moc_read_view.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_read_view.o moc_read_view.cpp
