@@ -11,15 +11,15 @@ StackView{
     height: 500
 
     property bool userLoggedIn: false
-    LoginView {
-      z: 1
-      visible: opacity > 0
-      enabled: visible
-      opacity: userLoggedIn ? 0 : 1
-      onLoginSucceeded: userLoggedIn = true
+//    LoginView {
+//      z: 1
+//      visible: opacity > 0
+//      enabled: visible
+//      opacity: userLoggedIn ? 0 : 1
+//      onLoginSucceeded: userLoggedIn = true
 
-      Behavior on opacity { NumberAnimation { duration: 250 } }
-    }
+//      Behavior on opacity { NumberAnimation { duration: 250 } }
+//    }
     Rectangle {
         id: rectangle
         color: "#ffffff"

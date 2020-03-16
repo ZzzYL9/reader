@@ -99,5 +99,10 @@
         <file>Images/my/headimg.png</file>
         <file>Images/homepage/switchimg/learn.jpg</file>
         <file>common/TopBars.qml</file>
+        <file>Images/analyze/analyze_words.png</file>
+        <file>Images/analyze/draw_words.png</file>
+        <file>Images/analyze/men_relationship.png</file>
+        <file>views/AnalyzeView.qml</file>
+        <file>Images/analyze/book.jpg</file>
     </qresource>
 </RCC>

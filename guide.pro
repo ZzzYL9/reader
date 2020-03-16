@@ -64,6 +64,7 @@ DISTFILES += \
     popup/BrightNess.qml \
     popup/PopupCatalog.qml \
     popup/SettingBottom.qml \
+    views/AnalyzeView.qml \
     views/HomeStack.qml \
     views/HomeView.qml \
     views/HomeView/CircleView.qml \

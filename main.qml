@@ -105,14 +105,14 @@ ApplicationWindow {
         }
 
 
+        AnalyzeView{
+            id: analyzeview
+            width: rootwindow.width;
+            height: rootwindow.height;
 
-
-        Rectangle{
-            Text {
-                text: qsTr("分析")
-                anchors.centerIn: parent
-            }
         }
+
+
         MineView{}
     }
 

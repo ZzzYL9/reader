@@ -7,6 +7,8 @@ Item {
 
     property alias rippleColor: ripple.color
     property alias iconSource: icon.source
+    property alias iconwidth: icon.width
+    property alias iconheight: icon.height
 
     signal clicked
 
@@ -16,8 +18,8 @@ Item {
             fill: undefined
             centerIn: parent
         }
-        width: 40
-        height: 40
+        width: icon.width
+        height: icon.height
         radius: 20
         mouseArea: mouseArea
     }
