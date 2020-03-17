@@ -18,6 +18,7 @@ Rectangle{
         MenuItem {
             id: menuItem1
             anchors.left: parent.left
+            font.bold: true
             text: qsTr("本机导入")
             height: itemheight
             indicator:
@@ -45,6 +46,7 @@ Rectangle{
             id: menuItem2
             anchors.left: parent.left
             text: qsTr("WLAN传书")
+            font.bold: true
             height: itemheight
             indicator:
             Image {
@@ -71,6 +73,7 @@ Rectangle{
             id: menuItem3
             anchors.left: parent.left
             text: qsTr("我的书籍")
+            font.bold: true
             height: itemheight
             indicator:
             Image {

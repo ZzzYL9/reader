@@ -116,11 +116,24 @@ ApplicationWindow {
         MineView{}
     }
 
+    Rectangle{//模拟线段
+//                anchors.top: gridviewrec.bottom
+        width:rootwindow.width //长
+        height:1  //高
+        anchors.bottom: bar.top
+        color:"#e6e6e6" //颜色
+    }
+
+
     footer: BaseTabBar{
         id: bar
 //        tbheight: 0.08*rootwindow.height
         height: 0.08*rootwindow.height
         width: rootwindow.width
+
+
+
+
         currentIndex: swipeview.currentIndex
         Component.onCompleted: {
             myModel.append({ "modelText": "首页", "modelColor": "#000000", "modelColorG": "#1296db", "modelSrc": "qrc:/Images/guide/homepage.png", "modelSrcG": "qrc:/Images/guide/homepage_after.png"})

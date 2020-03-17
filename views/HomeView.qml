@@ -135,8 +135,9 @@ Rectangle {
             //******************************************
             Rectangle{
                 id:likerec
-                width: rootwindow.width
+                width: 0.9*rootwindow.width
                 height: 1/3*rootwindow.height
+                anchors.horizontalCenter: parent.horizontalCenter
                 color: "#cdcdcd"
                 radius: 10
                 Text {
@@ -155,12 +156,12 @@ Rectangle {
                     anchors.bottom: likerec.bottom
                     anchors.bottomMargin: 10
                     anchors.horizontalCenter: parent.horizontalCenter
-//                    VideoView{
-//                        id:videoview
-//                        width: parent.width/1.5
-//                        height: 0.3*rootwindow.height
-//                        anchors.centerIn: parent
-//                    }
+                    VideoView{
+                        id:videoview
+                        width: parent.width
+                        height: parent.height-20
+                        anchors.centerIn: parent
+                    }
                 }
 
 
