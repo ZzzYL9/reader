@@ -1,9 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>images/analogy.png</file>
-        <file>images/books.png</file>
-        <file>images/home.png</file>
-        <file>images/homepage.png</file>
-        <file>images/me.png</file>
-    </qresource>
-</RCC>
