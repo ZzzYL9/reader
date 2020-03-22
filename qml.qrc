@@ -5,7 +5,6 @@
         <file>items/BaseTabBar.qml</file>
         <file>items/homepage/SearchBar.qml</file>
         <file>views/HomeView.qml</file>
-        <file>items/homepage/GridBook.qml</file>
         <file>Globel_Object.qml</file>
         <file>items/bookshelf/Book_ShelfItem.qml</file>
         <file>qmldir</file>
@@ -53,7 +52,6 @@
         <file>Images/readview/verticalAlignment.png</file>
         <file>views/HomeView/CircleView.qml</file>
         <file>views/HomeView/GridViews.qml</file>
-        <file>views/HomeView/SortBooks.qml</file>
         <file>views/HomeStack.qml</file>
         <file>Images/homepage/switchimg/PHP.jpg</file>
         <file>Images/homepage/switchimg/android.jpg</file>
@@ -104,5 +102,13 @@
         <file>Images/analyze/men_relationship.png</file>
         <file>views/AnalyzeView.qml</file>
         <file>Images/analyze/book.jpg</file>
+        <file>items/homepage/GridBookModel.qml</file>
+        <file>items/homepage/ListBookModel.qml</file>
+        <file>Images/homepage/sortimg/gantie.jpg</file>
+        <file>Images/homepage/sortimg/hong.jpg</file>
+        <file>Images/homepage/sortimg/shuihu.jpg</file>
+        <file>Images/homepage/sortimg/xiyouji.jpg</file>
+        <file>Images/homepage/sortimg/book.jpg</file>
+        <file>views/HomeView/SortView.qml</file>
     </qresource>
 </RCC>

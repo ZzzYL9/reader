@@ -13,7 +13,7 @@ Item {
     }
     Component{
         id:sortbooks
-        SortBooks{}
+        SortView{}
     }
 
 

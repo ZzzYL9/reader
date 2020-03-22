@@ -109,7 +109,7 @@ Item{
         Rectangle{
             id:selectbook
             width: rootwindow.width
-            height: rootwindow.height-analyzetop.height-bar.height
+            height: rootwindow.height-analyzetop.height-basebar.height
             anchors.top: analyzetop.bottom
             color: "transparent"
 

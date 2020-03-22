@@ -58,7 +58,8 @@ DISTFILES += \
     items/bookshelf/readview/SettingButton2.qml \
     items/bookshelf/readview/SettingButton3.qml \
     items/homepage/CircleView.qml \
-    items/homepage/GridBook.qml \
+    items/homepage/GridBookModel.qml \
+    items/homepage/ListBookModel.qml \
     items/homepage/SearchBar.qml \
     main.qml \
     popup/BrightNess.qml \
@@ -69,7 +70,7 @@ DISTFILES += \
     views/HomeView.qml \
     views/HomeView/CircleView.qml \
     views/HomeView/GridViews.qml \
-    views/HomeView/SortBooks.qml \
+    views/HomeView/SortView.qml \
     views/HomeView/VideoView.qml \
     views/MineView.qml \
     views/MineView/Help.qml \
