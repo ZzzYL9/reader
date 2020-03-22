@@ -10,9 +10,11 @@ import "../../common"
 import "../../items/homepage"
 
 Item {
-    property var bookdesc_wid: 4/7*rootwindow.width
+    property var bookdesc_wid: 5/8*rootwindow.width
     property var bookdesc_hei: imgsize.height
     property var imgsize: 1/4*rootwindow.width
+
+    property alias sorttitle: sorttitle.text
 
     Column{
         TopBars {
@@ -32,6 +34,7 @@ Item {
                     }
                 }
                 Label {
+                    id:sorttitle
                     text: qsTr("经典名著")
                     font.bold: true
                     font.pixelSize:18
@@ -97,32 +100,41 @@ Item {
                         spacing:10
                         model:ListBookModel{}
                         delegate: Component{
-                            Row{
-                                spacing: 10
-                                Rectangle{
-                                   width:imgsize
-                                   height:imgsize
-                                   Image{
-                                       id:_bookimage
-                                       height: parent.width
-                                       width: parent.height
-                                       source: bookimage
+                            Column{
+                                Row{
+                                    id:controw
+                                    spacing: 10
+                                    Rectangle{
+                                       width:imgsize
+                                       height:imgsize
+
+                                       Image{
+                                           id:_bookimage
+                                           height: parent.width
+                                           width: parent.height
+                                           source: bookimage
+                                       }
+                                    }
+                                    Column{
+                                       Text {//书籍名字
+                                           id: _bookname
+                                           text: bookname
+                                           font.bold: true
+                                       }
+                                       Text {//书籍简介
+                                           id: _bookdesc
+                                           width:bookdesc_wid
+                                           height: bookdesc_hei
+                                           text: bookdesc
+                                           wrapMode: Text.WordWrap
+                                       }
                                    }
                                 }
-                                Column{
-                                   Text {//书籍名字
-                                       id: _bookname
-                                       text: bookname
-                                       font.bold: true
-                                   }
-                                   Text {//书籍简介
-                                       id: _bookdesc
-                                       width:bookdesc_wid
-                                       height: bookdesc_hei
-                                       text: bookdesc
-                                       wrapMode: Text.WordWrap
-                                   }
-                               }
+                                Rectangle{//模拟线段
+                                    width:rootwindow.width-40 //长
+                                    height:4  //高
+                                    color:"#e6e6e6" //颜色
+                                }
                             }
                         }
                     }
