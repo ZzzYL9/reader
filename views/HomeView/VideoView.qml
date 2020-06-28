@@ -14,10 +14,11 @@ Item {
         MediaPlayer {
             id: mediaplayer
             //file:///root/reader_function_test/we.mp4
-//            source: "file:///root/reader_function_test/we.mp4"
+            source: "file:///root/reader_function_test/we.mp4"
 //            source: "http://121.36.246.157:8080/movie.mp4"
 //            source: "file:.//we.mp4"
-            source: "https://www.runoob.com/try/demo_source/movie.ogg"
+//            source: "https://www.runoob.com/try/demo_source/movie.ogg"
+//            source: "file:///storage/emulated/0/DCIM/Camera/abc.mp4"
             autoPlay: true
             loops: 2
         }

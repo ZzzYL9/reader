@@ -4,27 +4,27 @@ ListModel {
     ListElement {
         bookimage:"qrc:/Images/homepage/sortimg/xiyouji.jpg"
         bookname:"西游记"
-        bookdesc: "《西游记》又称央视86版《西游记》，改编自明代小说家吴承恩同名文学古典名著..."
+        bookdesc: "    《西游记》又称央视86版《西游记》，改编自明代小说家吴承恩同名文学古典名著..."
     }
     ListElement {
         bookimage:"qrc:/Images/homepage/sortimg/gantie.jpg"
         bookname:"钢铁是怎样炼成的"
-        bookdesc: "《有这么一个年轻人，他少年时就参加革命，拿枪和敌人殊死作战，留下满身伤痕。战争结束后，他拼命工作至全身瘫痪、双目失明..."
+        bookdesc: "    《有这么一个年轻人，他少年时就参加革命，拿枪和敌人殊死作战，留下满身伤痕。战争结束后，他拼命工作至全身瘫痪、双目失明..."
     }
     ListElement {
         bookimage:"qrc:/Images/homepage/sortimg/shuihu.jpg"
         bookname:"水浒传"
-        bookdesc: "《宋朝宋徽宗时期皇帝昏庸、奸臣当道、官府腐败、贪官污吏陷害忠良，弄得民不聊生，许多正直善良的人被官府逼得无路可走..."
+        bookdesc: "    《宋朝宋徽宗时期皇帝昏庸、奸臣当道、官府腐败、贪官污吏陷害忠良，弄得民不聊生，许多正直善良的人被官府逼得无路可走..."
     }
     ListElement {
         bookimage:"qrc:/Images/homepage/sortimg/hong.jpg"
         bookname:"红楼梦"
-        bookdesc: "中国古代章回体长篇小说，又名《石头记》等，中国古典四大名著之一，一般认为是清代作家曹雪芹所著。小说以贾、史、王、薛..."
+        bookdesc: "    中国古代章回体长篇小说，又名《石头记》等，中国古典四大名著之一，一般认为是清代作家曹雪芹所著。小说以贾、史、王、薛..."
     }
     ListElement {
         bookimage:"qrc:/Images/homepage/sortimg/book.jpg"
         bookname:"书"
-        bookdesc: "..."
+        bookdesc: "    ..."
     }
 
 //     ListElement {

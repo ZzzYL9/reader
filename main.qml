@@ -19,7 +19,6 @@ ApplicationWindow {
     height: 600
     title: qsTr("书客")
 
-
     SwipeView {
         id: swipeview
         height: rootwindow.height - basebar.height
@@ -36,6 +35,14 @@ ApplicationWindow {
         Rectangle{
             id:bookshelf
             color: "#CCCCCC"
+            Image {
+                    id: rocket
+                    fillMode: Image.TileHorizontally
+//                    smooth: true
+                    width: rootwindow.width
+                    source: 'qrc:/Images/shelf/background.jpg'
+            }
+
             TopBars{
                 id: topBars
                 height: 0.07*rootwindow.height

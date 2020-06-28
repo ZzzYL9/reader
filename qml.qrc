@@ -110,5 +110,8 @@
         <file>Images/homepage/sortimg/xiyouji.jpg</file>
         <file>Images/homepage/sortimg/book.jpg</file>
         <file>views/HomeView/SortView.qml</file>
+        <file>Images/shelf/background.jpg</file>
+        <file>Images/shelf/background1.jpg</file>
+        <file>Images/homepage/switchimg/digdata.jpeg</file>
     </qresource>
 </RCC>

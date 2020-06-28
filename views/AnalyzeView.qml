@@ -124,7 +124,7 @@ Item{
                 Image {
                     id: selectimage
                     anchors.fill: parent
-                    source: "qrc:/Images/analyze/book.jpg"
+                    source: "qrc:/Images/homepage/switchimg/digdata.jpeg"
                 }
             }
             Button{

@@ -95,7 +95,8 @@ DIST          = QML/SearchBar.qml \
 		items/bookshelf/readview/SettingButton2.qml \
 		items/bookshelf/readview/SettingButton3.qml \
 		items/homepage/CircleView.qml \
-		items/homepage/GridBook.qml \
+		items/homepage/GridBookModel.qml \
+		items/homepage/ListBookModel.qml \
 		items/homepage/SearchBar.qml \
 		main.qml \
 		popup/BrightNess.qml \
@@ -106,7 +107,7 @@ DIST          = QML/SearchBar.qml \
 		views/HomeView.qml \
 		views/HomeView/CircleView.qml \
 		views/HomeView/GridViews.qml \
-		views/HomeView/SortBooks.qml \
+		views/HomeView/SortView.qml \
 		views/HomeView/VideoView.qml \
 		views/MineView.qml \
 		views/MineView/Help.qml \
@@ -745,10 +746,10 @@ qrc_qml.cpp: qml.qrc \
 		views/MineView/MyNotes.qml \
 		views/readview/ReadView.qml \
 		views/readview/CataBottom.qml \
-		views/HomeView/SortBooks.qml \
 		views/HomeView/GridViews.qml \
 		views/HomeView/VideoView.qml \
 		views/HomeView/CircleView.qml \
+		views/HomeView/SortView.qml \
 		popup/BrightNess.qml \
 		popup/SettingBottom.qml \
 		popup/PopupCatalog.qml \
@@ -777,9 +778,15 @@ qrc_qml.cpp: qml.qrc \
 		Images/homepage/gridimg/ke.png \
 		Images/homepage/gridimg/yan.png \
 		Images/homepage/gridimg/wen.png \
+		Images/homepage/sortimg/xiyouji.jpg \
+		Images/homepage/sortimg/gantie.jpg \
+		Images/homepage/sortimg/book.jpg \
+		Images/homepage/sortimg/hong.jpg \
+		Images/homepage/sortimg/shuihu.jpg \
 		Images/homepage/switchimg/learn.jpg \
 		Images/homepage/switchimg/deeplearning.png \
 		Images/homepage/switchimg/android.jpg \
+		Images/homepage/switchimg/digdata.jpeg \
 		Images/homepage/switchimg/python.jpg \
 		Images/homepage/switchimg/C++.jpg \
 		Images/homepage/switchimg/PHP.jpg \
@@ -815,13 +822,16 @@ qrc_qml.cpp: qml.qrc \
 		Images/shelf/search.png \
 		Images/shelf/wifi.png \
 		Images/shelf/import.png \
+		Images/shelf/background.jpg \
+		Images/shelf/background1.jpg \
 		Images/shelf/folder.png \
 		common/TopBars.qml \
 		common/PaperRipple.qml \
 		common/IconButton.qml \
 		items/BaseTabBar.qml \
 		items/homepage/SearchBar.qml \
-		items/homepage/GridBook.qml \
+		items/homepage/GridBookModel.qml \
+		items/homepage/ListBookModel.qml \
 		items/bookshelf/Book_ShelfItem.qml \
 		items/bookshelf/AddButton.qml \
 		items/bookshelf/readview/ListItem.qml \
@@ -2260,7 +2270,9 @@ read_view.o: read_view.cpp read_view.h \
 		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QDir \
 		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qdir.h \
 		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qfileinfo.h \
-		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QDebug
+		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QDebug \
+		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/QTextCodec \
+		/opt/Qt5.13.0/5.13.0/android_armv7/include/QtCore/qtextcodec.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o read_view.o read_view.cpp
 
 reader_book.o: reader_book.cpp reader_book.h \

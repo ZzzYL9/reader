@@ -3,6 +3,7 @@ import QtQuick 2.0
 Rectangle{
     radius: 10
     id:root;
+
     signal openSource();
     color: "transparent";
     Rectangle{
@@ -21,8 +22,9 @@ Rectangle{
             height: parent.height;
             anchors.fill:parent;
             anchors.margins: 5
-            source: "qrc:/Images/homepage/switchimg/learn.jpg"
-//            source: "https://www.cnblogs.com/skins/chinaheart/images/header.jpg"
+//            source: "qrc:/Images/homepage/switchimg/digdata.jpeg"
+            source: "https://www.cnblogs.com/skins/chinaheart/images/header.jpg"
+
         }
         MouseArea{
             anchors.fill: parent;

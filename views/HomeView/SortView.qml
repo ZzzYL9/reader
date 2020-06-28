@@ -70,15 +70,23 @@ Item {
                         anchors.centerIn: parent
                         Text {
                             text: qsTr("热读榜")
+                            font.bold: true
+                            font.pixelSize: 15
                         }
                         Text {
                             text: qsTr("新书榜")
+                            font.bold: true
+                            font.pixelSize: 15
                         }
                         Text {
                             text: qsTr("口碑榜")
+                            font.bold: true
+                            font.pixelSize: 15
                         }
                         Text {
                             text: qsTr("影视原著")
+                            font.bold: true
+                            font.pixelSize: 15
                         }
                     }
                 }
@@ -120,12 +128,15 @@ Item {
                                            id: _bookname
                                            text: bookname
                                            font.bold: true
+                                           font.pixelSize: 15
                                        }
                                        Text {//书籍简介
                                            id: _bookdesc
                                            width:bookdesc_wid
                                            height: bookdesc_hei
                                            text: bookdesc
+//                                           font.bold: true
+                                           font.pixelSize: 14
                                            wrapMode: Text.WordWrap
                                        }
                                    }

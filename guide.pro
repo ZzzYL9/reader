@@ -14,6 +14,9 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 #LIBS+=-lcurl
 
+RC_ICONS = myapp.ico
+#RC_FILE = app.rc
+
 SOURCES += \
     background_setting.cpp \
     book_chapter.cpp \
